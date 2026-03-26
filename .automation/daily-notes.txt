@@ -1,0 +1,6 @@
+# Ghi chu cong viec trong ngay
+# Muc dich: Noi dung nay se duoc dua vao context-latest.json moi ngay
+# Ban co the ghi tom tat theo mau:
+# - Viec da lam:
+# - Van de gap phai:
+# - Ke hoach ngay mai:
