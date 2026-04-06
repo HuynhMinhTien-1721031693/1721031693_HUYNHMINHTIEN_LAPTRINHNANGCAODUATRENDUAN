@@ -1,33 +1,17 @@
 ﻿{
-    "generatedAt":  "2026-03-26T15:40:00.5116685+07:00",
-    "date":  "2026-03-26",
+    "generatedAt":  "2026-04-06T21:55:02.5330992+07:00",
+    "date":  "2026-04-06",
     "repository":  "D:\\HuynhMinhTien\\LAP TRINH NANG CAO DUA TREN DU AN\\PROJECT",
     "branch":  "main",
     "workingTreeChanged":  true,
     "changedFiles":  [
                          ".automation/backup.log",
-                         ".automation/daily-notes.txt",
-                         ".automation/save-context.ps1"
+                         ".automation/context.log",
+                         ".automation/context-history.jsonl",
+                         ".automation/context-latest.json"
                      ],
     "commitsLast24h":  [
-                           {
-                               "hash":  "e822997",
-                               "author":  "MinhTien",
-                               "date":  "2026-03-26T15:28:55+07:00",
-                               "message":  "Auto backup: 2026-03-26 15:28:55"
-                           },
-                           {
-                               "hash":  "9172aea",
-                               "author":  "MinhTien",
-                               "date":  "2026-03-26T15:27:21+07:00",
-                               "message":  "Auto backup: 2026-03-26 15:27:20"
-                           },
-                           {
-                               "hash":  "cec1653",
-                               "author":  "MinhTien",
-                               "date":  "2026-03-26T15:22:25+07:00",
-                               "message":  "Auto backup: 26/03/2026 15:22:25.47"
-                           }
+
                        ],
     "manualNotes":  "# Ghi chu cong viec trong ngay\n# Muc dich: Noi dung nay se duoc dua vao context-latest.json moi ngay\n# Ban co the ghi tom tat theo mau:\n# - Viec da lam:\n# - Van de gap phai:\n# - Ke hoach ngay mai:"
 }
