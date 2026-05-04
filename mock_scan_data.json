@@ -1,0 +1,282 @@
+[
+  {
+    "object_id": "OBJ-001",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 33,
+      "h": 28,
+      "d": 26
+    },
+    "weight_kg": 5.4,
+    "temperature_c": 24.31,
+    "timestamp": "2025-01-01T08:00:00Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-002",
+    "object_type": "unknown",
+    "size_cm": {
+      "w": 62,
+      "h": 68,
+      "d": 46
+    },
+    "weight_kg": 33.97,
+    "temperature_c": 25.55,
+    "timestamp": "2025-01-01T08:00:30Z",
+    "status": "warning",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-003",
+    "object_type": "pallet",
+    "size_cm": {
+      "w": 92,
+      "h": 14,
+      "d": 132
+    },
+    "weight_kg": 45.84,
+    "temperature_c": 26.53,
+    "timestamp": "2025-01-01T08:01:00Z",
+    "status": "warning",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-004",
+    "object_type": "pallet",
+    "size_cm": {
+      "w": 93,
+      "h": 18,
+      "d": 100
+    },
+    "weight_kg": 49.13,
+    "temperature_c": 24.29,
+    "timestamp": "2025-01-01T08:01:30Z",
+    "status": "warning",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-005",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 28,
+      "h": 23,
+      "d": 33
+    },
+    "weight_kg": 5.14,
+    "temperature_c": 21.7,
+    "timestamp": "2025-01-01T08:02:00Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-006",
+    "object_type": "pallet",
+    "size_cm": {
+      "w": 80,
+      "h": 25,
+      "d": 113
+    },
+    "weight_kg": 22.33,
+    "temperature_c": 21.25,
+    "timestamp": "2025-01-01T08:02:30Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-007",
+    "object_type": "box_B",
+    "size_cm": {
+      "w": 60,
+      "h": 35,
+      "d": 57
+    },
+    "weight_kg": 13.95,
+    "temperature_c": 25.76,
+    "timestamp": "2025-01-01T08:03:00Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-008",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 32,
+      "h": 31,
+      "d": 25
+    },
+    "weight_kg": 5.42,
+    "temperature_c": 26.1,
+    "timestamp": "2025-01-01T08:03:30Z",
+    "status": "warning",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-009",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 21,
+      "h": 24,
+      "d": 31
+    },
+    "weight_kg": 6.69,
+    "temperature_c": 75.54,
+    "timestamp": "2025-01-01T08:04:00Z",
+    "status": "error",
+    "anomaly": "fire_thermal"
+  },
+  {
+    "object_id": "OBJ-010",
+    "object_type": "unknown",
+    "size_cm": {
+      "w": 100,
+      "h": 68,
+      "d": 98
+    },
+    "weight_kg": 16.56,
+    "temperature_c": 76.18,
+    "timestamp": "2025-01-01T08:04:30Z",
+    "status": "error",
+    "anomaly": "fire_thermal"
+  },
+  {
+    "object_id": "OBJ-011",
+    "object_type": "box_B",
+    "size_cm": {
+      "w": 50,
+      "h": 36,
+      "d": 37
+    },
+    "weight_kg": 11.05,
+    "temperature_c": 81.42,
+    "timestamp": "2025-01-01T08:05:00Z",
+    "status": "error",
+    "anomaly": "fire_thermal"
+  },
+  {
+    "object_id": "OBJ-012",
+    "object_type": "pallet",
+    "size_cm": {
+      "w": 105,
+      "h": 15,
+      "d": 135
+    },
+    "weight_kg": 22.13,
+    "temperature_c": 22.95,
+    "timestamp": "2025-01-01T08:05:30Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-013",
+    "object_type": "unknown",
+    "size_cm": {
+      "w": 65,
+      "h": 41,
+      "d": 139
+    },
+    "weight_kg": 2.41,
+    "temperature_c": 27.57,
+    "timestamp": "2025-01-01T08:06:00Z",
+    "status": "warning",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-014",
+    "object_type": "unknown",
+    "size_cm": {
+      "w": 113,
+      "h": 52,
+      "d": 83
+    },
+    "weight_kg": 15.62,
+    "temperature_c": 23.99,
+    "timestamp": "2025-01-01T08:06:30Z",
+    "status": "warning",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-015",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 29,
+      "h": 29,
+      "d": 33
+    },
+    "weight_kg": 3.59,
+    "temperature_c": 22.77,
+    "timestamp": "2025-01-01T08:07:00Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-016",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 38,
+      "h": 29,
+      "d": 36
+    },
+    "weight_kg": 3.0,
+    "temperature_c": 26.03,
+    "timestamp": "2025-01-01T08:07:30Z",
+    "status": "error",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-017",
+    "object_type": "box_A",
+    "size_cm": {
+      "w": 24,
+      "h": 25,
+      "d": 36
+    },
+    "weight_kg": 6.74,
+    "temperature_c": 26.41,
+    "timestamp": "2025-01-01T08:08:00Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-018",
+    "object_type": "box_B",
+    "size_cm": {
+      "w": 58,
+      "h": 39,
+      "d": 49
+    },
+    "weight_kg": 9.3,
+    "temperature_c": 22.97,
+    "timestamp": "2025-01-01T08:08:30Z",
+    "status": "ok",
+    "anomaly": null
+  },
+  {
+    "object_id": "OBJ-019",
+    "object_type": "pallet",
+    "size_cm": {
+      "w": 101,
+      "h": 19,
+      "d": 132
+    },
+    "weight_kg": 25.39,
+    "temperature_c": 65.56,
+    "timestamp": "2025-01-01T08:09:00Z",
+    "status": "error",
+    "anomaly": "fire_thermal"
+  },
+  {
+    "object_id": "OBJ-020",
+    "object_type": "unknown",
+    "size_cm": {
+      "w": 140,
+      "h": 78,
+      "d": 76
+    },
+    "weight_kg": 57.57,
+    "temperature_c": 23.43,
+    "timestamp": "2025-01-01T08:09:30Z",
+    "status": "warning",
+    "anomaly": null
+  }
+]

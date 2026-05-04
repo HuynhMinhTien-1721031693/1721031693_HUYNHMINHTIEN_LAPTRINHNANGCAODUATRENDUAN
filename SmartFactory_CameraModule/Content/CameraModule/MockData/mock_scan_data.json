@@ -1,0 +1,162 @@
+[
+  {
+    "Name": "OBJ-001",
+    "ObjectID": "OBJ-001",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.8,
+    "Weight": 14.1,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-002",
+    "ObjectID": "OBJ-002",
+    "ObjectType": "Box",
+    "ScanDuration": 3.8,
+    "Weight": 89.48,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-003",
+    "ObjectID": "OBJ-003",
+    "ObjectType": "Cylinder",
+    "ScanDuration": 2.0,
+    "Weight": 80.73,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-004",
+    "ObjectID": "OBJ-004",
+    "ObjectType": "Box",
+    "ScanDuration": 4.2,
+    "Weight": 17.6,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-005",
+    "ObjectID": "OBJ-005",
+    "ObjectType": "Box",
+    "ScanDuration": 1.9,
+    "Weight": 89.84,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-006",
+    "ObjectID": "OBJ-006",
+    "ObjectType": "Cylinder",
+    "ScanDuration": 3.9,
+    "Weight": 11.07,
+    "IsValid": false
+  },
+  {
+    "Name": "OBJ-007",
+    "ObjectID": "OBJ-007",
+    "ObjectType": "Cylinder",
+    "ScanDuration": 2.7,
+    "Weight": 27.83,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-008",
+    "ObjectID": "OBJ-008",
+    "ObjectType": "Cylinder",
+    "ScanDuration": 4.7,
+    "Weight": 96.37,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-009",
+    "ObjectID": "OBJ-009",
+    "ObjectType": "Pallet",
+    "ScanDuration": 2.0,
+    "Weight": 51.99,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-010",
+    "ObjectID": "OBJ-010",
+    "ObjectType": "Cylinder",
+    "ScanDuration": 1.7,
+    "Weight": 99.79,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-011",
+    "ObjectID": "OBJ-011",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.4,
+    "Weight": 72.31,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-012",
+    "ObjectID": "OBJ-012",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.5,
+    "Weight": 26.8,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-013",
+    "ObjectID": "OBJ-013",
+    "ObjectType": "Box",
+    "ScanDuration": 4.8,
+    "Weight": 34.55,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-014",
+    "ObjectID": "OBJ-014",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.9,
+    "Weight": 64.83,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-015",
+    "ObjectID": "OBJ-015",
+    "ObjectType": "Box",
+    "ScanDuration": 3.7,
+    "Weight": 89.07,
+    "IsValid": false
+  },
+  {
+    "Name": "OBJ-016",
+    "ObjectID": "OBJ-016",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.8,
+    "Weight": 56.35,
+    "IsValid": false
+  },
+  {
+    "Name": "OBJ-017",
+    "ObjectID": "OBJ-017",
+    "ObjectType": "Cylinder",
+    "ScanDuration": 2.3,
+    "Weight": 98.43,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-018",
+    "ObjectID": "OBJ-018",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.7,
+    "Weight": 29.96,
+    "IsValid": false
+  },
+  {
+    "Name": "OBJ-019",
+    "ObjectID": "OBJ-019",
+    "ObjectType": "Pallet",
+    "ScanDuration": 4.2,
+    "Weight": 93.49,
+    "IsValid": true
+  },
+  {
+    "Name": "OBJ-020",
+    "ObjectID": "OBJ-020",
+    "ObjectType": "Pallet",
+    "ScanDuration": 2.3,
+    "Weight": 29.53,
+    "IsValid": true
+  }
+]
