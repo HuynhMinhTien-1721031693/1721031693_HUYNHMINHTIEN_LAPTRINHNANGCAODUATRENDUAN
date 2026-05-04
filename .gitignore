@@ -1,0 +1,21 @@
+# Unreal Engine generated folders
+SmartFactory_CameraModule/Binaries/
+SmartFactory_CameraModule/DerivedDataCache/
+SmartFactory_CameraModule/Intermediate/
+SmartFactory_CameraModule/Saved/
+
+# Unreal IDE files
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+
+# Visual Studio / Rider
+.vs/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
