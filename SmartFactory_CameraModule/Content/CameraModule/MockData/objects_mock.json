@@ -1,0 +1,142 @@
+[
+  {
+    "ObjectID": "OBJ_001",
+    "ObjectType": "Box_A",
+    "Weight": 1.13,
+    "IsDefective": true,
+    "ScanTimestamp": "2025-01-01T00:00:00"
+  },
+  {
+    "ObjectID": "OBJ_002",
+    "ObjectType": "Box_A",
+    "Weight": 3.55,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:01:00"
+  },
+  {
+    "ObjectID": "OBJ_003",
+    "ObjectType": "Irregular_C",
+    "Weight": 0.89,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:02:00"
+  },
+  {
+    "ObjectID": "OBJ_004",
+    "ObjectType": "Cylinder_B",
+    "Weight": 0.64,
+    "IsDefective": true,
+    "ScanTimestamp": "2025-01-01T00:03:00"
+  },
+  {
+    "ObjectID": "OBJ_005",
+    "ObjectType": "Box_A",
+    "Weight": 1.48,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:04:00"
+  },
+  {
+    "ObjectID": "OBJ_006",
+    "ObjectType": "Irregular_C",
+    "Weight": 3.21,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:05:00"
+  },
+  {
+    "ObjectID": "OBJ_007",
+    "ObjectType": "Irregular_C",
+    "Weight": 1.39,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:06:00"
+  },
+  {
+    "ObjectID": "OBJ_008",
+    "ObjectType": "Irregular_C",
+    "Weight": 3.66,
+    "IsDefective": true,
+    "ScanTimestamp": "2025-01-01T00:07:00"
+  },
+  {
+    "ObjectID": "OBJ_009",
+    "ObjectType": "Cylinder_B",
+    "Weight": 1.49,
+    "IsDefective": true,
+    "ScanTimestamp": "2025-01-01T00:08:00"
+  },
+  {
+    "ObjectID": "OBJ_010",
+    "ObjectType": "Irregular_C",
+    "Weight": 1.75,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:09:00"
+  },
+  {
+    "ObjectID": "OBJ_011",
+    "ObjectType": "Box_A",
+    "Weight": 3.91,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:10:00"
+  },
+  {
+    "ObjectID": "OBJ_012",
+    "ObjectType": "Box_A",
+    "Weight": 3.64,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:11:00"
+  },
+  {
+    "ObjectID": "OBJ_013",
+    "ObjectType": "Cylinder_B",
+    "Weight": 1.75,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:12:00"
+  },
+  {
+    "ObjectID": "OBJ_014",
+    "ObjectType": "Box_A",
+    "Weight": 4.81,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:13:00"
+  },
+  {
+    "ObjectID": "OBJ_015",
+    "ObjectType": "Cylinder_B",
+    "Weight": 0.96,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:14:00"
+  },
+  {
+    "ObjectID": "OBJ_016",
+    "ObjectType": "Cylinder_B",
+    "Weight": 0.94,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:15:00"
+  },
+  {
+    "ObjectID": "OBJ_017",
+    "ObjectType": "Cylinder_B",
+    "Weight": 3.22,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:16:00"
+  },
+  {
+    "ObjectID": "OBJ_018",
+    "ObjectType": "Box_A",
+    "Weight": 3.78,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:17:00"
+  },
+  {
+    "ObjectID": "OBJ_019",
+    "ObjectType": "Irregular_C",
+    "Weight": 1.06,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:18:00"
+  },
+  {
+    "ObjectID": "OBJ_020",
+    "ObjectType": "Cylinder_B",
+    "Weight": 0.85,
+    "IsDefective": false,
+    "ScanTimestamp": "2025-01-01T00:19:00"
+  }
+]

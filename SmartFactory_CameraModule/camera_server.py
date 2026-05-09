@@ -57,14 +57,15 @@ class ScanState:
     def status_summary(self):
         ok = warning = error = anomaly = 0
         for event in self._events:
-            event_status = normalize_status(event)
+            normalized_event = canonicalize_event(event)
+            event_status = normalized_event["status"]
             if event_status == "ok":
                 ok += 1
             elif event_status == "warning":
                 warning += 1
             elif event_status == "error":
                 error += 1
-            if event.get("anomaly"):
+            if normalized_event["anomaly"] is not None:
                 anomaly += 1
 
         with self._lock:
@@ -107,6 +108,29 @@ def normalize_status(event):
     return "warning"
 
 
+def canonicalize_event(event):
+    object_id = (
+        event.get("object_id")
+        or event.get("ObjectID")
+        or event.get("Name")
+        or "unknown"
+    )
+    object_type = event.get("object_type") or event.get("ObjectType") or "unknown"
+    weight = event.get("weight_kg", event.get("Weight", 0.0))
+    temperature = event.get("temperature_c", event.get("TemperatureC", 0.0))
+    anomaly = event.get("anomaly")
+    if anomaly is None and bool(event.get("IsDefective", False)):
+        anomaly = "defect_detected"
+    return {
+        "object_id": str(object_id),
+        "object_type": str(object_type),
+        "weight_kg": float(weight),
+        "temperature_c": float(temperature),
+        "status": normalize_status(event),
+        "anomaly": anomaly,
+    }
+
+
 class CameraRequestHandler(BaseHTTPRequestHandler):
     state = None
 
@@ -132,7 +156,7 @@ class CameraRequestHandler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
         if path == "/current":
             _, event = self.state.get_current()
-            self._send_json(200, event)
+            self._send_json(200, canonicalize_event(event))
             return
         if path == "/status":
             self._send_json(200, self.state.status_summary())

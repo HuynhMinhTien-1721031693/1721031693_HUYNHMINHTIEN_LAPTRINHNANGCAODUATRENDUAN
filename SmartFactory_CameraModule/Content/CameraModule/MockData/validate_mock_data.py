@@ -1,187 +1,93 @@
 import json
+import re
+import argparse
+import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
 
 
-DATA_FILE = Path(__file__).resolve().parent / "mock_scan_data.json"
-REQUIRED_FIELDS = {
-    "object_id",
-    "object_type",
-    "size_cm",
-    "weight_kg",
-    "temperature_c",
-    "timestamp",
-    "status",
-    "anomaly",
-}
-VALID_STATUSES = {"ok", "warning", "error"}
-VALID_TYPES = {"box_A", "box_B", "pallet", "unknown"}
+EXPECTED_COUNT = 20
+DATA_FILE = Path(__file__).resolve().parent / "objects_mock.json"
+ID_PATTERN = re.compile(r"^OBJ_\d{3}$")
 
 
-def pass_fail(condition: bool, pass_msg: str, fail_msg: str) -> bool:
-    if condition:
-        print(f"[PASS] {pass_msg}")
-        return True
-    print(f"[FAIL] {fail_msg}")
-    return False
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Validate camera scanner mock data JSON.")
+    parser.add_argument("--input", type=Path, default=DATA_FILE, help="Input JSON file path.")
+    parser.add_argument("--expected-count", type=int, default=EXPECTED_COUNT, help="Expected row count.")
+    return parser.parse_args()
 
 
-def parse_timestamp(ts: str) -> datetime:
-    # Input example: 2025-06-01T08:00:00Z
-    return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ")
+def validate_row(row: dict, index: int, seen_ids: set[str]) -> list[str]:
+    errors: list[str] = []
 
+    object_id = row.get("ObjectID")
+    if not isinstance(object_id, str) or not ID_PATTERN.match(object_id):
+        errors.append(f"Row {index}: ObjectID '{object_id}' invalid (expected OBJ_XXX)")
+    elif object_id in seen_ids:
+        errors.append(f"Row {index}: duplicate ObjectID '{object_id}'")
+    else:
+        seen_ids.add(object_id)
 
-def preview_table(items: List[Dict[str, Any]]) -> None:
-    print("\nPreview:")
-    print("# | object_id      | type    | weight  | temp   | status   | anomaly")
-    print("--|----------------|---------|---------|--------|----------|---------------")
-    for idx, obj in enumerate(items, start=1):
-        anomaly = obj["anomaly"] if obj["anomaly"] is not None else "null"
-        row = (
-            f"{idx:>2} | "
-            f"{str(obj['object_id']):<14} | "
-            f"{str(obj['object_type']):<7} | "
-            f"{float(obj['weight_kg']):>6.2f} kg | "
-            f"{float(obj['temperature_c']):>5.1f}C | "
-            f"{str(obj['status']):<8} | "
-            f"{anomaly}"
-        )
-        print(row)
+    object_type = row.get("ObjectType")
+    if object_type not in {"Box_A", "Cylinder_B", "Irregular_C"}:
+        errors.append(f"Row {index}: ObjectType '{object_type}' invalid")
+
+    weight = row.get("Weight")
+    if not isinstance(weight, (int, float)):
+        errors.append(f"Row {index}: Weight must be numeric")
+    elif not (0.1 <= float(weight) <= 10.0):
+        errors.append(f"Row {index}: Weight {weight} out of range 0.1-10.0")
+
+    if not isinstance(row.get("IsDefective"), bool):
+        errors.append(f"Row {index}: IsDefective must be boolean")
+
+    timestamp = row.get("ScanTimestamp")
+    if not isinstance(timestamp, str):
+        errors.append(f"Row {index}: ScanTimestamp must be string")
+    else:
+        try:
+            datetime.fromisoformat(timestamp)
+        except ValueError:
+            errors.append(f"Row {index}: ScanTimestamp '{timestamp}' is not parseable ISO datetime")
+
+    return errors
 
 
 def main() -> None:
-    all_ok = True
+    args = parse_args()
 
-    # 1) File loads as valid JSON
     try:
-        raw = DATA_FILE.read_text(encoding="utf-8")
-        data = json.loads(raw)
-        all_ok &= pass_fail(True, "File loads as valid JSON", "File is not valid JSON")
-    except Exception as exc:
-        pass_fail(False, "", f"Could not load JSON file: {exc}")
-        return
+        data = json.loads(args.input.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        print(f"ERROR: File not found -> {args.input}")
+        sys.exit(1)
+    except json.JSONDecodeError as exc:
+        print(f"ERROR: Invalid JSON -> {exc}")
+        sys.exit(1)
 
-    # 2) Exactly 20 objects in array
-    is_list = isinstance(data, list)
-    all_ok &= pass_fail(is_list, "Top-level JSON is an array", "Top-level JSON is not an array")
-    if not is_list:
-        return
+    if not isinstance(data, list):
+        print("ERROR: Top-level JSON must be an array")
+        sys.exit(1)
 
-    all_ok &= pass_fail(
-        len(data) == 20,
-        "All 20 objects present",
-        f"Expected 20 objects but found {len(data)}",
-    )
+    errors: list[str] = []
+    if len(data) != args.expected_count:
+        errors.append(f"Expected {args.expected_count} rows but found {len(data)}")
 
-    # 3) Required fields present in every object
-    missing_field_issues = []
-    for i, obj in enumerate(data, start=1):
-        if not isinstance(obj, dict):
-            missing_field_issues.append(f"Item #{i} is not an object")
+    seen_ids: set[str] = set()
+    for row_index, row in enumerate(data, start=1):
+        if not isinstance(row, dict):
+            errors.append(f"Row {row_index}: must be an object/dict")
             continue
-        missing = REQUIRED_FIELDS - obj.keys()
-        if missing:
-            missing_field_issues.append(f"Item #{i} missing: {sorted(missing)}")
+        errors.extend(validate_row(row, row_index, seen_ids))
 
-    all_ok &= pass_fail(
-        len(missing_field_issues) == 0,
-        "All fields present",
-        "One or more objects missing required fields",
-    )
-    if missing_field_issues:
-        for issue in missing_field_issues[:5]:
-            print(f"  - {issue}")
+    if errors:
+        print("FAIL:")
+        for err in errors:
+            print(f"- {err}")
+        sys.exit(1)
 
-    # 4) status values valid
-    bad_status = [
-        (i + 1, obj.get("status"))
-        for i, obj in enumerate(data)
-        if isinstance(obj, dict) and obj.get("status") not in VALID_STATUSES
-    ]
-    all_ok &= pass_fail(
-        len(bad_status) == 0,
-        'All statuses are in {"ok","warning","error"}',
-        f"Found invalid status values: {bad_status[:5]}",
-    )
-
-    # 5) object_type values valid
-    bad_types = [
-        (i + 1, obj.get("object_type"))
-        for i, obj in enumerate(data)
-        if isinstance(obj, dict) and obj.get("object_type") not in VALID_TYPES
-    ]
-    all_ok &= pass_fail(
-        len(bad_types) == 0,
-        'All object types are in {"box_A","box_B","pallet","unknown"}',
-        f"Found invalid object_type values: {bad_types[:5]}",
-    )
-
-    # 6) At least 1 warning
-    warning_count = sum(1 for obj in data if isinstance(obj, dict) and obj.get("status") == "warning")
-    all_ok &= pass_fail(
-        warning_count >= 1,
-        f"Found warning objects ({warning_count})",
-        "No warning object found",
-    )
-
-    # 7) At least 1 error
-    error_count = sum(1 for obj in data if isinstance(obj, dict) and obj.get("status") == "error")
-    all_ok &= pass_fail(
-        error_count >= 1,
-        f"Found error objects ({error_count})",
-        "No error object found",
-    )
-
-    # 8) At least 1 fire_thermal anomaly
-    fire_count = sum(1 for obj in data if isinstance(obj, dict) and obj.get("anomaly") == "fire_thermal")
-    all_ok &= pass_fail(
-        fire_count >= 1,
-        f"Found fire_thermal anomalies ({fire_count})",
-        "No fire_thermal anomaly found",
-    )
-
-    # 9) Timestamps ascending
-    timestamp_ok = True
-    parsed_times = []
-    for i, obj in enumerate(data, start=1):
-        try:
-            parsed_times.append(parse_timestamp(str(obj.get("timestamp"))))
-        except Exception:
-            timestamp_ok = False
-            print(f"  - Invalid timestamp format at item #{i}: {obj.get('timestamp')}")
-            break
-    if timestamp_ok and any(parsed_times[i] > parsed_times[i + 1] for i in range(len(parsed_times) - 1)):
-        timestamp_ok = False
-    all_ok &= pass_fail(
-        timestamp_ok,
-        "Timestamps are in ascending order",
-        "Timestamps are not in ascending order",
-    )
-
-    # 10) weight_kg in range 1..100
-    bad_weights = []
-    for i, obj in enumerate(data, start=1):
-        try:
-            w = float(obj.get("weight_kg"))
-            if not (1.0 <= w <= 100.0):
-                bad_weights.append((i, w))
-        except Exception:
-            bad_weights.append((i, obj.get("weight_kg")))
-
-    all_ok &= pass_fail(
-        len(bad_weights) == 0,
-        "All weight_kg values are in realistic range (1-100)",
-        f"Found out-of-range or invalid weights: {bad_weights[:5]}",
-    )
-
-    preview_table(data)
-
-    print("\nValidation Result:")
-    if all_ok:
-        print("[PASS] Dataset is valid for Camera Scanning module")
-    else:
-        print("[FAIL] Dataset has validation issues (see checks above)")
+    print(f"PASS: {args.expected_count}/{args.expected_count} rows valid")
 
 
 if __name__ == "__main__":

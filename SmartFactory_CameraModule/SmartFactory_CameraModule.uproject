@@ -3,9 +3,32 @@
 	"EngineAssociation": "5.7",
 	"Category": "",
 	"Description": "Smart Factory simulation project with camera module.",
+	"Modules": [
+		{
+			"Name": "SmartFactory_CameraModule",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
 	"Plugins": [
 		{
 			"Name": "EnhancedInput",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "DataValidation",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "StateTree",
 			"Enabled": true
 		}
 	]
