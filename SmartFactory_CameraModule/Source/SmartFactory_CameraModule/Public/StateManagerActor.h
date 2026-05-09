@@ -2,7 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "SmartFactory_CameraModule.h"
+#include "Interfaces/IHttpRequest.h"
+#include "Interfaces/IHttpResponse.h"
 #include "ScanningDataTypes.h"
 #include "StateManagerActor.generated.h"
 
@@ -89,7 +90,7 @@ protected:
 	static bool JsonToPayload(const FString& JsonString, FCurrentScanObject& OutPayload);
 	static EModuleState ClassifyPayload(const FCurrentScanObject& Payload, float FireThreshold);
 
-	void Http_OnComplete(class FHttpRequestPtr Request, class FHttpResponsePtr Response, bool bConnectedSuccessfully);
+	void Http_OnComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnectedSuccessfully);
 	void TryFallbackDataTableRow();
 
 	UPROPERTY()
