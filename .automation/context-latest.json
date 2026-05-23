@@ -1,15 +1,10 @@
 ﻿{
-    "generatedAt":  "2026-05-20T21:55:03.8057776+07:00",
-    "date":  "2026-05-20",
+    "generatedAt":  "2026-05-23T21:55:04.2366989+07:00",
+    "date":  "2026-05-23",
     "repository":  "D:\\HuynhMinhTien\\LAP TRINH NANG CAO DUA TREN DU AN\\PROJECT",
     "branch":  "main",
     "workingTreeChanged":  true,
-    "changedFiles":  [
-                         "generate_task_docs.py",
-                         "HUONGDAN/",
-                         "SmartFactory_CameraModule/Content/CameraModule/Actors/BP_CameraRig.uasset",
-                         "SmartFactory_CameraModule/Content/CameraModule/Core/BP_StateManager.uasset"
-                     ],
+    "changedFiles":  ".automation/backup.log",
     "commitsLast24h":  [
 
                        ],
